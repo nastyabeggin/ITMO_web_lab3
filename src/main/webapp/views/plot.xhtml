@@ -1,0 +1,50 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg" id="svg-plot" >
+        <!-- Координатные оси -->
+        <line x1="0" x2="300" y1="150" y2="150" stroke="#343548"/>
+        <line x1="150" x2="150" y1="0" y2="300" stroke="#343548"/>
+        <!--Треугольник в первой четверти-->
+        <polygon id="triangle"  fill-opacity="0.9"/>
+
+        <!--Четверть круга во второй четверти-->
+        <path id="circle"  fill-opacity="0.9"/>
+
+        <!--Прямоугольник в четвертой четверти-->
+        <polygon id="rectangle"  fill-opacity="0.9"/>
+
+        <!-- Подписи к осям -->
+        <text x="290" y="140">X</text>
+        <text x="155" y="10">Y</text>
+    </svg>
+    <p:remoteCommand update="results panelGridPlot" immediate="true" name="clickPlot" action="${shotsBean.addThroughPlot()}"/>
+    <p:remoteCommand update="panelGridPlot" immediate="true" name="updatePlot" />
+    <h:outputScript>
+        updatePlot();
+        function getCoordinates(event){
+        let coordinates={}
+        coordinates.r = parseFloat(document.getElementById('form:value_r').value);
+        coordinates.x = ((event.offsetX - 150)/30).toFixed(2);
+        coordinates.y = (((-1)*(event.offsetY - 150))/30).toFixed(2)
+        return coordinates;
+        }
+        document.getElementById('svg-plot').addEventListener('click', function (event){
+        let coords = getCoordinates(event);
+        if (isValid(coords.x, coords.y, coords.r)){
+        document.getElementById('validationLabel').innerHTML = '';
+        clickPlot([{name: 'x', value: coords.x}, {name: 'y', value: coords.y}, {name: 'r', value: coords.r}]);
+        }
+        else {
+        document.getElementById('validationLabel').innerHTML = 'Данные не валидны!';
+        }})
+        <c:forEach var="shot" items="#{shotsBean.shotsList}">
+            makeDot(#{shot.x}, #{shot.y}, #{shot.r});
+        </c:forEach>
+        redrawGraph();
+    </h:outputScript>
+</ui:composition>

@@ -1,0 +1,47 @@
+.bio{
+    color: #3F3F21;
+    font-family: inherit;
+    text-align: center;
+    padding: 5px 40px;
+}
+
+#firstbio{
+    font-family: inherit;
+    font-size: 30px;
+    color: #DC582A;
+    font-weight: 500;
+    padding-top: 15%;
+}
+
+body {
+    background: #DED4C8;
+    color: #1d1d1d;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 20px;
+    font-weight: 300;
+}
+
+table {
+    width: 680px;
+    margin: auto;
+}
+
+input[type="button"] {
+    font-family: inherit;
+    font-size: 120%;
+    font-weight: 500;
+    color: #DED4C8;
+    border-radius: 20px;
+    border: 0;
+    width: 80%;
+    background-color: #7C7048;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+input[type="button"]:hover {
+    cursor: pointer;
+    background-color: #DC582A;
+}

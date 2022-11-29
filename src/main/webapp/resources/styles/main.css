@@ -1,0 +1,148 @@
+body {
+    background: #DED4C8;
+    color: #1d1d1d;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 20px;
+    font-weight: 300;
+}
+
+::selection {
+    background: #DC582A;
+    color: #DED4C8;
+}
+
+*:focus {
+    outline: none;
+}
+
+#content {
+    padding-top: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 3%;
+}
+
+#graph {
+    padding-top: 1.5cm;
+    color: #1d1d1d;
+    transform: scale(1.3);
+    font-size: 80%;
+}
+
+line {
+    color: #343548;
+}
+
+polygon, path {
+    stroke: #343548;
+    fill: #7C7048;
+}
+
+
+input[type="button"]:hover, input[type="submit"]:hover, #clear {
+    background-color: #DC582A;
+}
+
+input[type="button"], input[type="submit"], #clear{
+    font-family: inherit;
+    font-weight: 500;
+    font-size: inherit;
+    color: #DED4C8;
+    border-radius: 20px;
+    border: 0;
+    width: 90%;
+    background-color: #7C7048;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    padding-top: 10px;
+}
+
+input, #graph {
+    cursor: pointer;
+}
+
+#input_form{
+    border: solid 2px #7C7048;
+    border-radius: 20px;
+    padding: 1cm;
+}
+
+#input_form * {
+    margin-bottom: 5px;
+    font-style: inherit;
+    padding-bottom: 2%;
+}
+
+.x-value {
+    height: 30px;
+    width: 30px;
+    background: none;
+}
+
+input[type=text], #value_r option, select{
+    font-style: inherit;
+    color: #3F3F21;
+    font-size: 20px;
+    margin-left: 10px;
+    background: #DED4C8;
+    border-radius: 20px;
+    border: solid 2px #3F3F21;
+}
+
+select{
+    width: 2cm;
+    text-align-last: center;
+}
+
+input, button{
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    font: inherit;
+    background-color: #DED4C8;
+    border: 1px solid #3F3F21;
+    border-radius: 20px;
+    width: 1.15em;
+    height: 1.15em;
+    margin: 0;
+    display: grid;
+    place-content: center;
+}
+
+input[type="radio"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em #DC582A;
+}
+
+input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+#form-buttons{
+    padding-left: 1cm;
+    padding-top: 0.5cm;
+}
+
+#clear{
+    width: 40%;
+    position: center;;
+}
+
+#errors, #validationLabel{
+    color: orangered;
+    padding-left: 0.5cm;
+}
+
+#tableInTotal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 5% 3% 1% 10%;
+}
